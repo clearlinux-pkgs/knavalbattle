@@ -5,23 +5,23 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : knavalbattle
-Version  : 18.08.0
-Release  : 1
-URL      : https://download.kde.org/stable/applications/18.08.0/src/knavalbattle-18.08.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.08.0/src/knavalbattle-18.08.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.08.0/src/knavalbattle-18.08.0.tar.xz.sig
+Version  : 18.12.2
+Release  : 2
+URL      : https://download.kde.org/stable/applications/18.12.2/src/knavalbattle-18.12.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.2/src/knavalbattle-18.12.2.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.2/src/knavalbattle-18.12.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
-Requires: knavalbattle-bin
-Requires: knavalbattle-data
-Requires: knavalbattle-license
-Requires: knavalbattle-locales
+Requires: knavalbattle-bin = %{version}-%{release}
+Requires: knavalbattle-data = %{version}-%{release}
+Requires: knavalbattle-license = %{version}-%{release}
+Requires: knavalbattle-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : kdnssd-dev
 BuildRequires : libkdegames-dev
-BuildRequires : qtbase-dev qtbase-extras mesa-dev
+BuildRequires : qtbase-dev mesa-dev
 
 %description
 EXTENDED
@@ -29,8 +29,8 @@ EXTENDED
 %package bin
 Summary: bin components for the knavalbattle package.
 Group: Binaries
-Requires: knavalbattle-data
-Requires: knavalbattle-license
+Requires: knavalbattle-data = %{version}-%{release}
+Requires: knavalbattle-license = %{version}-%{release}
 
 %description bin
 bin components for the knavalbattle package.
@@ -69,26 +69,26 @@ locales components for the knavalbattle package.
 
 
 %prep
-%setup -q -n knavalbattle-18.08.0
+%setup -q -n knavalbattle-18.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535231853
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1549871308
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535231853
+export SOURCE_DATE_EPOCH=1549871308
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/knavalbattle
-cp COPYING %{buildroot}/usr/share/doc/knavalbattle/COPYING
-cp COPYING.DOC %{buildroot}/usr/share/doc/knavalbattle/COPYING.DOC
+mkdir -p %{buildroot}/usr/share/package-licenses/knavalbattle
+cp COPYING %{buildroot}/usr/share/package-licenses/knavalbattle/COPYING
+cp COPYING.DOC %{buildroot}/usr/share/package-licenses/knavalbattle/COPYING.DOC
 pushd clr-build
 %make_install
 popd
@@ -155,9 +155,9 @@ popd
 /usr/share/doc/HTML/uk/knavalbattle/index.docbook
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/knavalbattle/COPYING
-/usr/share/doc/knavalbattle/COPYING.DOC
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/knavalbattle/COPYING
+/usr/share/package-licenses/knavalbattle/COPYING.DOC
 
 %files locales -f knavalbattle.lang
 %defattr(-,root,root,-)
