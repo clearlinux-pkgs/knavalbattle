@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : knavalbattle
-Version  : 19.12.2
-Release  : 16
-URL      : https://download.kde.org/stable/release-service/19.12.2/src/knavalbattle-19.12.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/19.12.2/src/knavalbattle-19.12.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/19.12.2/src/knavalbattle-19.12.2.tar.xz.sig
+Version  : 19.12.3
+Release  : 17
+URL      : https://download.kde.org/stable/release-service/19.12.3/src/knavalbattle-19.12.3.tar.xz
+Source0  : https://download.kde.org/stable/release-service/19.12.3/src/knavalbattle-19.12.3.tar.xz
+Source1  : https://download.kde.org/stable/release-service/19.12.3/src/knavalbattle-19.12.3.tar.xz.sig
 Summary  : A ship sinking game
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -69,15 +69,15 @@ locales components for the knavalbattle package.
 
 
 %prep
-%setup -q -n knavalbattle-19.12.2
-cd %{_builddir}/knavalbattle-19.12.2
+%setup -q -n knavalbattle-19.12.3
+cd %{_builddir}/knavalbattle-19.12.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1581027247
+export SOURCE_DATE_EPOCH=1583451471
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -94,11 +94,11 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1581027247
+export SOURCE_DATE_EPOCH=1583451471
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/knavalbattle
-cp %{_builddir}/knavalbattle-19.12.2/COPYING %{buildroot}/usr/share/package-licenses/knavalbattle/fafaf6b2753f82aa8df1d206d6b76c2241c2dfa8
-cp %{_builddir}/knavalbattle-19.12.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/knavalbattle/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
+cp %{_builddir}/knavalbattle-19.12.3/COPYING %{buildroot}/usr/share/package-licenses/knavalbattle/fafaf6b2753f82aa8df1d206d6b76c2241c2dfa8
+cp %{_builddir}/knavalbattle-19.12.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/knavalbattle/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
 pushd clr-build
 %make_install
 popd
