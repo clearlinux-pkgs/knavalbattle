@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : knavalbattle
-Version  : 20.08.3
-Release  : 23
-URL      : https://download.kde.org/stable/release-service/20.08.3/src/knavalbattle-20.08.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.08.3/src/knavalbattle-20.08.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.08.3/src/knavalbattle-20.08.3.tar.xz.sig
+Version  : 20.12.0
+Release  : 24
+URL      : https://download.kde.org/stable/release-service/20.12.0/src/knavalbattle-20.12.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.12.0/src/knavalbattle-20.12.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.12.0/src/knavalbattle-20.12.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -25,7 +25,10 @@ BuildRequires : libkdegames-dev
 BuildRequires : qtbase-dev mesa-dev
 
 %description
-EXTENDED
+# KNavalBattel
+Naval Battle is a ship sinking game. Ships are placed on a board which
+represents the sea. Players try to hit each others ships in turns without knowing
+where they are placed. The first player to destroy all ships wins the game.
 
 %package bin
 Summary: bin components for the knavalbattle package.
@@ -70,15 +73,15 @@ locales components for the knavalbattle package.
 
 
 %prep
-%setup -q -n knavalbattle-20.08.3
-cd %{_builddir}/knavalbattle-20.08.3
+%setup -q -n knavalbattle-20.12.0
+cd %{_builddir}/knavalbattle-20.12.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1604602420
+export SOURCE_DATE_EPOCH=1607721027
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -94,11 +97,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1604602420
+export SOURCE_DATE_EPOCH=1607721027
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/knavalbattle
-cp %{_builddir}/knavalbattle-20.08.3/COPYING %{buildroot}/usr/share/package-licenses/knavalbattle/fafaf6b2753f82aa8df1d206d6b76c2241c2dfa8
-cp %{_builddir}/knavalbattle-20.08.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/knavalbattle/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
+cp %{_builddir}/knavalbattle-20.12.0/COPYING %{buildroot}/usr/share/package-licenses/knavalbattle/fafaf6b2753f82aa8df1d206d6b76c2241c2dfa8
+cp %{_builddir}/knavalbattle-20.12.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/knavalbattle/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
 pushd clr-build
 %make_install
 popd
