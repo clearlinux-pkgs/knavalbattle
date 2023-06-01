@@ -7,7 +7,7 @@
 #
 Name     : knavalbattle
 Version  : 23.04.1
-Release  : 51
+Release  : 52
 URL      : https://download.kde.org/stable/release-service/23.04.1/src/knavalbattle-23.04.1.tar.xz
 Source0  : https://download.kde.org/stable/release-service/23.04.1/src/knavalbattle-23.04.1.tar.xz
 Source1  : https://download.kde.org/stable/release-service/23.04.1/src/knavalbattle-23.04.1.tar.xz.sig
@@ -81,7 +81,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1684790047
+export SOURCE_DATE_EPOCH=1685589909
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -114,7 +114,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1684790047
+export SOURCE_DATE_EPOCH=1685589909
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/knavalbattle
 cp %{_builddir}/knavalbattle-%{version}/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/knavalbattle/29fb05b49e12a380545499938c4879440bd8851e || :
